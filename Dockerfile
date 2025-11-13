@@ -7,12 +7,12 @@ COPY package*.json ./
 
 # Устанавливаем зависимости
 RUN npm install
-
+RUN npm run build
 # Копируем все исходники
 COPY . .
 
 # Собираем проект
-RUN npm run build
+
 
 # Сервер Nginx
 FROM nginx:alpine
