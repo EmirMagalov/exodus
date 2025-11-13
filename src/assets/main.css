@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #000; /* fallback */
+  background-image:
+    url('/Slice 3.jpg'), url('/Slice 4.jpg'), url('/Slice 5.jpg'), url('/Slice 6.jpg'),
+    url('/Slice 7.jpg');
+  background-position:
+    center top,
+    center top,
+    center center,
+    center bottom,
+    center bottom;
+  background-size: cover, cover, cover, cover, cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  color: white;
+}
+@media (max-width: 768px) {
+  html,
+  body {
+    background-attachment: scroll;
+    background-size:
+      300% auto,
+      /* уменьшаем только первое фото */ cover,
+      cover,
+      cover,
+      cover;
+    background-position:
+      center top,
+      center top,
+      center center,
+      center bottom,
+      center bottom;
+  }
+}
+.font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
