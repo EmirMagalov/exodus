@@ -1,0 +1,5 @@
+services:
+  vueapp:
+    build: .
+    ports:
+      - "80:80"
