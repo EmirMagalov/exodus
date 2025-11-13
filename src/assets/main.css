@@ -23,6 +23,7 @@ body {
   background-attachment: fixed;
   overflow-x: hidden;
   color: white;
+  scroll-behavior: smooth;
 }
 @media (max-width: 768px) {
   html,

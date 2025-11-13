@@ -16,9 +16,32 @@ const FrequentlyAskedQuestions = [
   { name: 'What happens after the\n campaign ends?', descr: '' },
   { name: 'Is there any cost to participate?', descr: '' },
 ]
+
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const scrolled = ref(false) // состояние скролла
+
+const handleScroll = () => {
+  scrolled.value = window.scrollY > 120 // true, если прокрутка больше 50px
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
+  <button
+    v-show="scrolled"
+    onclick="openModal()"
+    class="fixed z-10 bottom-5 text-white text-[16px] font-bold bg-[#6b52f5] rounded-full w-80 h-17 mx-auto left-0 right-0"
+  >
+    Connect Wallet
+  </button>
   <timer />
   <div class="text-center mt-8">
     <h1 class="font-jakarta text-[30px] font-bold">

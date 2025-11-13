@@ -63,7 +63,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="mt-5 md:mt-20 px-0 md:px-4">
+  <div  class="mt-5 md:mt-20 px-0 md:px-4">
     <div
       class="border border-[#282243] rounded-2xl backdrop-blur-sm bg-[#0f0b26]/80 overflow-x-auto md:overflow-x-hidden"
     >

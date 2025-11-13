@@ -19,7 +19,7 @@ const FrequentlyAskedQuestions = [
 
 <template>
   <div class="flex justify-between">
-    <div class="t">
+    <div id="main">
       <h1 class="font-jakarta text-[62px] font-bold">
         Join Exodus Web3 Access<br />
         2025 and receive
@@ -48,7 +48,7 @@ const FrequentlyAskedQuestions = [
       <timer />
     </div>
     <div>
-      <Cards />
+      <Cards  />
     </div>
   </div>
   <div>
@@ -81,7 +81,7 @@ const FrequentlyAskedQuestions = [
         <p class="text-lg">Reward per Wallet</p>
       </div>
     </div>
-    <h1 class="text-[62px] font-jakarta font-semibold text-white mt-30 mb-3">Live Transactions</h1>
+    <h1 id="live" class="text-[62px] font-jakarta font-semibold text-white mt-30 mb-3">Live Transactions</h1>
     <div class="flex justify-between gap-4 mb-8">
       <p class="text-white/70 text-[24px]">
         Live Rewards — track real-time campaign activity as new participants join every few seconds.
@@ -96,7 +96,7 @@ const FrequentlyAskedQuestions = [
     <live-transactions />
     <div class="mt-10 flex justify-between items-center">
       <div class="">
-        <h1 class="text-[62px] font-jakarta font-semibold mb-10">
+        <h1 id="about" class="text-[62px] font-jakarta font-semibold mb-10">
           What is the TRX
           <br />
           Access Bonus 2025?
@@ -114,7 +114,7 @@ const FrequentlyAskedQuestions = [
       </div>
     </div>
     <div>
-      <p class="text-[62px] text-center mb-15 font-bold">How to participate</p>
+      <p id="rewards" class="text-[62px] text-center mb-15 font-bold">How to participate</p>
     </div>
     <div class="flex gap-5">
       <div
@@ -166,7 +166,7 @@ const FrequentlyAskedQuestions = [
       </p>
     </div>
     <div class="text-center my-25">
-      <h1 class="text-[62px] text-white font-bold mb-5">Frequently Asked Questions</h1>
+      <h1 id="faq" class="text-[62px] text-white font-bold mb-5">Frequently Asked Questions</h1>
       <p class="text-white/70 text-[24px]">
         Everything you need to know before joining the EXOD Partner Rewards campaign.
       </p>
