@@ -2,6 +2,7 @@
 import LiveTransactions from './LiveTransactions.vue'
 import Timer from './Timer.vue'
 import Cards from './Cards.vue'
+
 const FrequentlyAskedQuestions = [
   {
     name: 'Is it safe to connect my wallet?',
@@ -47,18 +48,55 @@ const FrequentlyAskedQuestions = [
 
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const scrolled = ref(false) // состояние скролла
+const scrolled = ref(false)
+const showHeader = ref(true)
+let hideTimeout = null
+const resetTimer = () => {
+  // Если вверху — всегда показываем и не скрываем
+  if (window.scrollY < 50) {
+    showHeader.value = true
+    if (hideTimeout) clearTimeout(hideTimeout)
+    return
+  }
 
+  showHeader.value = true
+
+  // Таймер скрытия
+  if (hideTimeout) clearTimeout(hideTimeout)
+  hideTimeout = setTimeout(() => {
+    showHeader.value = false
+  }, 3000)
+}
 const handleScroll = () => {
-  scrolled.value = window.scrollY > 120 // true, если прокрутка больше 50px
+  // Показываем шапку если вверху
+  if (window.scrollY < 50) {
+    scrolled.value = false
+    showHeader.value = true
+  } else {
+    scrolled.value = true
+
+    resetTimer()
+  }
+  // Подсветка активного раздела
+  sections.forEach((id) => {
+    const el = document.getElementById(id)
+    if (el) {
+      const top = el.getBoundingClientRect().top
+      const offset = 250
+      if (top <= offset && top + el.offsetHeight > offset) {
+        activeSection.value = id
+      }
+    }
+  })
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  window.addEventListener('mousemove', resetTimer) // << добавлено
 })
-
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('mousemove', resetTimer)
 })
 
 const toggle = (index) => {
@@ -75,10 +113,14 @@ const open = ref([])
   <button
     v-show="scrolled"
     onclick="openModal()"
-    class="fixed z-10 bottom-5 text-white text-[16px] font-bold bg-[#6b52f5] rounded-full w-80 h-17 mx-auto left-0 right-0"
+    :class="[
+      'fixed z-10 bottom-5 text-white text-[16px] font-bold bg-[#6b52f5] rounded-full w-80 h-17 mx-auto left-0 right-0',
+      scrolled && !showHeader ? 'opacity-0 ' : 'opacity-100 ',
+    ]"
   >
     Connect Wallet
   </button>
+  <div id="main"></div>
   <timer />
   <div class="text-center mt-8">
     <h1 class="font-jakarta text-[30px] font-bold">
@@ -152,7 +194,7 @@ const open = ref([])
       >
         Updates every few seconds
       </p>
-      <h1 class="text-[30px] font-jakarta font-semibold text-white">Live Transactions</h1>
+      <h1 id="live" class="text-[30px] font-jakarta font-semibold text-white">Live Transactions</h1>
 
       <p class="text-white/70 text-[14px]">
         Live Rewards — track real-time campaign <br />
@@ -163,7 +205,7 @@ const open = ref([])
     <div class="relative">
       <live-transactions class="w-[120%]" />
     </div>
-    <div class="mt-20 flex flex-col items-center">
+    <div id="about" class="mt-20 flex flex-col items-center">
       <h1
         class="text-[30px] font-jakarta font-semibold mb-5 whitespace-nowrap text-center leading-tight"
       >
@@ -184,7 +226,7 @@ const open = ref([])
         <img src="/Group 385.svg" class="w-130 max-w-none -mt-20" alt="" />
       </div>
     </div>
-    <div>
+    <div id="rewards">
       <p class="text-[30px] font-semibold text-center mb-15 font-jakarta">How to participate</p>
     </div>
     <div class="flex flex-col gap-5">
@@ -246,7 +288,7 @@ const open = ref([])
         We never ask for private keys or seed phrases.
       </p>
     </div>
-    <div class="mt-15">
+    <div id="faq" class="mt-15">
       <h1 class="text-[30px] font-semibold text-white font-jakarta mb-5">
         Frequently Asked Questions
       </h1>

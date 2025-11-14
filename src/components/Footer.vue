@@ -18,7 +18,12 @@
           <p>About</p>
           <p>Rewards System</p>
           <p>FAQ</p>
-          <p class="text-white py-[19px] px-[58px] bg-[#6b52f5] rounded-full">Connect Wallet</p>
+          <button
+            onclick="openModal()"
+            class="text-white py-[19px] px-[58px] bg-[#6b52f5] rounded-full"
+          >
+            Connect Wallet
+          </button>
         </div>
 
         <div class="flex justify-between">

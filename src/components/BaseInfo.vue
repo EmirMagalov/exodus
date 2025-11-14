@@ -55,8 +55,9 @@ const open = ref([])
 </script>
 
 <template>
-  <div class="flex justify-between">
-    <div id="main">
+  <div  class="">
+  <div id="main" class="flex justify-between">
+    <div>
       <h1 class="font-jakarta text-[62px] font-bold">
         Join Exodus Web3 Access<br />
         2025 and receive
@@ -239,5 +240,6 @@ const open = ref([])
         </p>
       </div>
     </div>
+  </div>
   </div>
 </template>

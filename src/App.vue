@@ -12,9 +12,9 @@ const isMobile = useMediaQuery('(max-width: 768px)')
 
 <template>
   <exodus-background />
-  <div class="w-[85vw] m-auto min-h-screen mb-15">
+  <div class="w-[85vw] m-auto min-h-screen  ">
     <headers-mobile v-if="isMobile" />
-    <headers v-else />
+    <headers  v-else />
     <base-info-mobile v-if="isMobile" />
     <base-info v-else />
   </div>
