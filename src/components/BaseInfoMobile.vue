@@ -62,10 +62,10 @@ const resetTimer = () => {
   showHeader.value = true
 
   // Таймер скрытия
-  if (hideTimeout) clearTimeout(hideTimeout)
-  hideTimeout = setTimeout(() => {
-    showHeader.value = false
-  }, 3000)
+  // if (hideTimeout) clearTimeout(hideTimeout)
+  // hideTimeout = setTimeout(() => {
+  //   showHeader.value = false
+  // }, 3000)
 }
 const handleScroll = () => {
   // Показываем шапку если вверху
@@ -154,7 +154,7 @@ const open = ref([])
 
   <div>
     <div class="flex flex-col mt-15 gap-5">
-      <div class="bg-[#100a2a] rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]">
+      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1  rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30">
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector.svg" alt="" />
           <h1
@@ -165,7 +165,7 @@ const open = ref([])
         </div>
         <p class="mt-3 text-[15px]">Total Rewards Sent</p>
       </div>
-      <div class="bg-[#100a2a] rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]">
+      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-8 w-80 h-35 border-1">
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector (1).svg" alt="" />
           <h1
@@ -176,7 +176,7 @@ const open = ref([])
         </div>
         <p class="mt-3 text-[15px]">Connected Wallets</p>
       </div>
-      <div class="bg-[#100a2a] rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]">
+      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1  rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30">
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector (2).svg" alt="" />
           <h1
@@ -231,7 +231,7 @@ const open = ref([])
     </div>
     <div class="flex flex-col gap-5">
       <div
-        class="relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector (3).svg" alt="" />
         <h1
@@ -247,7 +247,7 @@ const open = ref([])
         </div>
       </div>
       <div
-        class="relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector (4).svg" alt="" />
         <h1
@@ -263,7 +263,7 @@ const open = ref([])
         </div>
       </div>
       <div
-        class="relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector.svg" alt="" />
         <h1 class="z-10 text-[21px] font-semibold whitespace-nowrap text-white mt-10 mb-5">

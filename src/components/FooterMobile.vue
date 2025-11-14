@@ -1,4 +1,6 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+const activeSection = ref('main')
 const scrollToSection = (id) => {
   const el = document.getElementById(id)
   if (!el) return

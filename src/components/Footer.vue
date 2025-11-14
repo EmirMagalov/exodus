@@ -1,3 +1,19 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+const activeSection = ref('main')
+const scrollToSection = (id) => {
+  const el = document.getElementById(id)
+  if (!el) return
+
+  const offset = 250 // сколько пикселей оставить сверху
+
+  const top = el.getBoundingClientRect().top + window.scrollY - offset
+
+  window.scrollTo({
+    top,
+  })
+}
+</script>
 <template>
   <div class="h-60 bg-black flex items-center justify-center">
     <div class="w-[90%] flex justify-between items-center">
@@ -13,11 +29,31 @@
       </div>
       <div class="flex flex-col gap-10">
         <div class="flex gap-15 text-[15px] items-center text-[#CFCFCF]">
-          <p>Main</p>
-          <p>Live Transactions</p>
-          <p>About</p>
-          <p>Rewards System</p>
-          <p>FAQ</p>
+          <a
+            :class="['cursor-pointer', activeSection === 'main' ? 'text-white' : '']"
+            @click="scrollToSection('main')"
+            >Main</a
+          >
+          <a
+            :class="['cursor-pointer', activeSection === 'live' ? 'text-white' : '']"
+            @click="scrollToSection('live')"
+            >Live Transactions</a
+          >
+          <a
+            :class="['cursor-pointer', activeSection === 'about' ? 'text-white' : '']"
+            @click="scrollToSection('about')"
+            >About</a
+          >
+          <a
+            :class="['cursor-pointer', activeSection === 'rewards' ? 'text-white' : '']"
+            @click="scrollToSection('rewards')"
+            >Rewards System</a
+          >
+          <a
+            :class="['cursor-pointer', activeSection === 'faq' ? 'text-white' : '']"
+            @click="scrollToSection('faq')"
+            >FAQ</a
+          >
           <button
             onclick="openModal()"
             class="text-white py-[19px] px-[58px] bg-[#6b52f5] rounded-full"

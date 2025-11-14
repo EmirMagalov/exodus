@@ -50,3 +50,11 @@ body {
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
+
+
+@layer utilities {
+  .bg-custom-gradient {
+    background: radial-gradient(88.29% 134.21% at 88.29% 50%, rgba(27, 0, 69, 0.35) 0%, rgba(69, 0, 180, 0.28) 100%),
+                linear-gradient(0deg, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.23));
+  }
+}

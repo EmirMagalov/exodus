@@ -29,10 +29,10 @@ const resetTimer = () => {
   showHeader.value = true
 
   // Таймер скрытия
-  if (hideTimeout) clearTimeout(hideTimeout)
-  hideTimeout = setTimeout(() => {
-    showHeader.value = false
-  }, 2000)
+  // if (hideTimeout) clearTimeout(hideTimeout)
+  // hideTimeout = setTimeout(() => {
+  //   showHeader.value = false
+  // }, 2000)
 }
 const handleScroll = () => {
   // Показываем шапку если вверху
@@ -42,7 +42,7 @@ const handleScroll = () => {
   } else {
     scrolled.value = true
 
-    resetTimer()
+    // resetTimer()
   }
   // Подсветка активного раздела
   sections.forEach((id) => {
