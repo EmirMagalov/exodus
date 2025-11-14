@@ -92,7 +92,7 @@ const open = ref([])
     <div>
       <div class="flex mt-15 gap-5">
         <div
-          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30  bg-[#100a2a] rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector.svg" alt="" />
           <h1
@@ -103,7 +103,7 @@ const open = ref([])
           <p class="text-[20px]">Total Rewards Sent</p>
         </div>
         <div
-          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30  bg-[#100a2a] rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector (1).svg" alt="" />
           <h1
@@ -114,7 +114,7 @@ const open = ref([])
           <p class="text-[20px]">Connected Wallets</p>
         </div>
         <div
-          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] to-[#0000003B] border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] to-[#0000003B] border-1 border-[#392c58]/30  bg-[#100a2a] rounded-2xl opacity-80 p-15 w-150 flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector (2).svg" alt="" />
           <h1
