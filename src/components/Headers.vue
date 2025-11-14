@@ -7,10 +7,25 @@ const activeSection = ref('main')
 
 const sections = ['main', 'live', 'about', 'rewards', 'faq']
 let hideTimeout = null
+const resetTimer = () => {
+  // Если вверху — всегда показываем и не скрываем
+  if (window.scrollY < 100) {
+    showHeader.value = true
+    if (hideTimeout) clearTimeout(hideTimeout)
+    return
+  }
 
+  showHeader.value = true
+
+  // Таймер скрытия
+  if (hideTimeout) clearTimeout(hideTimeout)
+  hideTimeout = setTimeout(() => {
+    showHeader.value = false
+  }, 2000)
+}
 const handleScroll = () => {
   scrolled.value = window.scrollY > 100
-
+  resetTimer()
   // Если вверху страницы — шапка всегда видна
   if (window.scrollY < 100) {
     showHeader.value = true
@@ -19,13 +34,13 @@ const handleScroll = () => {
   }
 
   // Показываем шапку при скролле
-  showHeader.value = true
+  // showHeader.value = true
 
-  // Сбрасываем таймер
-  if (hideTimeout) clearTimeout(hideTimeout)
-  hideTimeout = setTimeout(() => {
-    showHeader.value = false
-  }, 2000) // 5 секунд без движения
+  // // Сбрасываем таймер
+  // if (hideTimeout) clearTimeout(hideTimeout)
+  // hideTimeout = setTimeout(() => {
+  //   showHeader.value = false
+  // }, 2000) // 5 секунд без движения
 
   // Подсветка активного раздела
   sections.forEach((id) => {
@@ -40,10 +55,13 @@ const handleScroll = () => {
   })
 }
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('mousemove', resetTimer) // << добавлено
+})
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  if (hideTimeout) clearTimeout(hideTimeout)
+  window.removeEventListener('mousemove', resetTimer)
 })
 </script>
 
