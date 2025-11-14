@@ -2,19 +2,56 @@
 import LiveTransactions from './LiveTransactions.vue'
 import Timer from './Timer.vue'
 import Cards from './Cards.vue'
+import { ref } from 'vue'
 const FrequentlyAskedQuestions = [
-  { name: 'Is it safe to connect my wallet?', descr: '' },
+  {
+    name: 'Is it safe to connect my wallet?',
+    descr:
+      'Yes. We only request your public wallet address to verify participation.Private keys or seed phrases are never required or stored.',
+  },
   {
     name: 'When will I receive my TRX bonus?',
     descr: 'Rewards are credited automatically within 24 hours after campaign completion.',
   },
-  { name: 'Can I participate multiple times?', descr: '' },
-  { name: 'Where can I check my balance?', descr: '' },
-  { name: 'Are there any regional restrictions?', descr: '' },
-  { name: 'What happens after the campaign ends?', descr: '' },
-  { name: 'Do you access my funds?', descr: '' },
-  { name: 'Is there any cost to participate?', descr: '' },
+  {
+    name: 'Can I participate multiple times?',
+    descr:
+      'Each verified wallet can participate once.Repeated connections from the same address will not receive additional rewards.',
+  },
+  {
+    name: 'Where can I check my balance?',
+    descr:
+      'You can view your TRX bonus in your wallet’s transaction history or check it on the Tron blockchain using any supported block explorer.',
+  },
+  {
+    name: 'Are there any regional restrictions?',
+    descr:
+      'The campaign is open globally, except in regions where participation in blockchain-related promotions is restricted by local law.',
+  },
+  {
+    name: 'What happens after the campaign ends?',
+    descr:
+      'After the campaign ends, all verified participants will keep their TRX rewards.Future events may include new community bonuses and early-access programs.',
+  },
+  {
+    name: 'Do you access my funds?',
+    descr:
+      'No. We do not have any access to your wallet, balance, or funds.The connection is used only to verify your address for the TRX reward.',
+  },
+  {
+    name: 'Is there any cost to participate?',
+    descr:
+      'No, there are no fees or payments required to participate.You only need a supported Web3 wallet to verify your access.',
+  },
 ]
+const toggle = (index) => {
+  if (open.value.includes(index)) {
+    open.value = open.value.filter((i) => i !== index)
+  } else {
+    open.value.push(index)
+  }
+}
+const open = ref([])
 </script>
 
 <template>
@@ -48,7 +85,7 @@ const FrequentlyAskedQuestions = [
       <timer />
     </div>
     <div>
-      <Cards  />
+      <Cards />
     </div>
   </div>
   <div>
@@ -81,7 +118,9 @@ const FrequentlyAskedQuestions = [
         <p class="text-lg">Reward per Wallet</p>
       </div>
     </div>
-    <h1 id="live" class="text-[62px] font-jakarta font-semibold text-white mt-30 mb-3">Live Transactions</h1>
+    <h1 id="live" class="text-[62px] font-jakarta font-semibold text-white mt-30 mb-3">
+      Live Transactions
+    </h1>
     <div class="flex justify-between gap-4 mb-8">
       <p class="text-white/70 text-[24px]">
         Live Rewards — track real-time campaign activity as new participants join every few seconds.
@@ -174,24 +213,28 @@ const FrequentlyAskedQuestions = [
 
     <div class="grid grid-cols-2 items-center gap-10">
       <div
-        v-for="value in FrequentlyAskedQuestions"
+        v-for="(value, i) in FrequentlyAskedQuestions"
         :class="[
           'border-1 p-10 rounded-2xl border-[#26213f]',
-          value.descr && value.descr !== '' ? 'bg-[#1B183880]/100' : '',
+          value.descr && value.descr !== '' && open.includes(i) ? 'bg-[#1B183880]/100' : '',
         ]"
-        :key="value"
+        :key="i"
+        @click="toggle(i)"
       >
         <div class="flex justify-between">
           <p class="font-bold text-[24px]">{{ value.name }}</p>
           <div class="bg-[#6b52f5] w-12 h-12 p-3 rounded-full flex items-center justify-center">
             <img
-              :src="value.descr && value.descr !== '' ? '/up.svg' : '/down.svg'"
+              :src="value.descr && value.descr !== '' && open.includes(i) ? '/up.svg' : '/down.svg'"
               class="object-contain"
               alt=""
             />
           </div>
         </div>
-        <p :class="[value.descr && value.descr !== '' ? 'mt-3 text-[20px]  text-white/70' : '']">
+        <p
+          v-if="open.includes(i)"
+          :class="[value.descr && value.descr !== '' ? 'mt-3 text-[20px]  text-white/70' : '']"
+        >
           {{ value.descr }}
         </p>
       </div>

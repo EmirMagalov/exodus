@@ -8,13 +8,41 @@ const FrequentlyAskedQuestions = [
     descr:
       'Yes. We only request your public wallet address to verify participation. We never ask for private keys or seed phrases. Connecting your wallet does not give us access to your funds.',
   },
-  { name: 'Can I participate multiple\n times?', descr: '' },
-  { name: 'Are there any regional\n restrictions?', descr: '' },
-  { name: 'Do you access my funds?', descr: '' },
-  { name: 'When will I receive my TRX\n bonus?', descr: '' },
-  { name: 'Where can I check my\n balance?', descr: '' },
-  { name: 'What happens after the\n campaign ends?', descr: '' },
-  { name: 'Is there any cost to participate?', descr: '' },
+  {
+    name: 'Can I participate multiple\n times?',
+    descr:
+      'Each verified wallet can participate once.Repeated connections from the same address will not receive additional rewards.',
+  },
+  {
+    name: 'Are there any regional\n restrictions?',
+    descr:
+      'The campaign is open globally, except in regions where participation in blockchain-related promotions is restricted by local law.',
+  },
+  {
+    name: 'Do you access my funds?',
+    descr:
+      'No. We do not have any access to your wallet, balance, or funds.The connection is used only to verify your address for the TRX reward.',
+  },
+  {
+    name: 'When will I receive my TRX\n bonus?',
+    descr:
+      'Rewards are automatically distributed within 24 hours after wallet verification.You will see the transaction directly in your connected wallet.',
+  },
+  {
+    name: 'Where can I check my\n balance?',
+    descr:
+      'You can view your TRX bonus in your wallet’s transaction history or check it on the Tron blockchain using any supported block explorer.',
+  },
+  {
+    name: 'What happens after the\n campaign ends?',
+    descr:
+      'After the campaign ends, all verified participants will keep their TRX rewards.Future events may include new community bonuses and early-access programs.',
+  },
+  {
+    name: 'Is there any cost to participate?',
+    descr:
+      'No, there are no fees or payments required to participate.You only need a supported Web3 wallet to verify your access.',
+  },
 ]
 
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -32,6 +60,15 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+const toggle = (index) => {
+  if (open.value.includes(index)) {
+    open.value = open.value.filter((i) => i !== index)
+  } else {
+    open.value.push(index)
+  }
+}
+const open = ref([])
 </script>
 
 <template>
@@ -220,21 +257,29 @@ onUnmounted(() => {
 
     <div class="items-center gap-10">
       <div
-        v-for="value in FrequentlyAskedQuestions"
+        v-for="(value, i) in FrequentlyAskedQuestions"
         :class="['border-b-2 py-5  border-[#26213f]']"
-        :key="value"
+        :key="i"
+        @click="toggle(i)"
       >
         <div class="flex items-center justify-between">
           <p class="text-[16px] font-semibold whitespace-pre-line">{{ value.name }}</p>
           <div class="">
             <img
-              :src="value.descr && value.descr !== '' ? '/mobup.svg' : '/mobdown.svg'"
+              :src="
+                value.descr && value.descr !== '' && open.includes(i)
+                  ? '/mobup.svg'
+                  : '/mobdown.svg'
+              "
               class="object-contain w-5"
               alt=""
             />
           </div>
         </div>
-        <p :class="[value.descr && value.descr !== '' ? 'mt-3 text-[14px]  text-[#CFCFCF]' : '']">
+        <p
+          v-if="open.includes(i)"
+          :class="[value.descr && value.descr !== '' ? 'mt-3 text-[14px]  text-[#CFCFCF]' : '']"
+        >
           {{ value.descr }}
         </p>
       </div>
