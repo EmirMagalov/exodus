@@ -31,13 +31,13 @@ onUnmounted(() => clearInterval(interval))
 
 <template>
   <div
-    class="mt-0 md:mt-20 fade-bottom border-t-2 border-l-2 border-r-2 border-dashed border-[#A07CDA4D]/8 p-2 md:p-7 rounded-t-2xl md:rounded-t-4xl overflow-hidden"
+    class=" mt-0 md:mt-20 fade-bottom border-t-2 border-l-2 border-r-2 md:border-l-3 border-t-2 border-l-2 border-r-2 md:border-r-3 border-dashed border-[#A07CDA4D]/8 p-2 md:p-7 rounded-t-2xl md:rounded-t-4xl overflow-hidden"
   >
     <div
-      class="border-t-2 border-l-2 border-r-2 border-dashed border-[#A07CDA4D]/15 p-2 md:p-7 rounded-t-2xl md:rounded-t-4xl overflow-hidden"
+      class="border-t-2 border-l-2 border-r-2 md:border-t-3 border-t-2 border-l-2 border-r-2 md:border-l-3 border-t-2 border-l-2 border-r-2 md:border-r-3 border-dashed border-[#A07CDA4D]/15 p-2 md:p-7 rounded-t-2xl md:rounded-t-4xl overflow-hidden"
     >
       <div
-        class="flex flex-col gap-2 md:gap-5 p-4 md:p-10 h-[200px] md:h-[470px] rounded-t-2xl md:rounded-t-4xl outline-[#403b60] border-t-2 border-l-2 border-r-2 border-dashed border-[#A07CDA4D]/40 overflow-hidden"
+        class="flex flex-col md:w-180 gap-2 md:gap-5 p-4 md:p-10 h-[200px] md:h-[470px] rounded-t-2xl md:rounded-t-4xl outline-[#403b60] border-t-2 border-l-2 border-r-2 md:border-t-3 border-t-2 border-l-2 border-r-2 md:border-l-3 border-t-2 border-l-2 border-r-2 md:border-r-3 border-dashed border-[#A07CDA4D]/40 overflow-hidden"
       >
         <!-- Transition Group для анимации смены карточек -->
         <TransitionGroup tag="div" name="slide" class="flex flex-col gap-2 md:gap-5" appear>

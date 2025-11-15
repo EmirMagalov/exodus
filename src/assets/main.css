@@ -7,40 +7,44 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  background-color: #000; /* fallback */
+  
   background-image:
-    url('/Slice 3.jpg'), url('/Slice 4.jpg'), url('/Slice 5.jpg'), url('/Slice 6.jpg'),
-    url('/Slice 7.jpg');
-  background-position:
-    center top,
-    center top,
-    center center,
-    center bottom,
-    center bottom;
-  background-size: cover, cover, cover, cover, cover;
+    url('/Fon1.webp'), url('/Fon2.webp'), url('/Fon3.webp'), url('/Fon4.webp'), url('/Fon5.webp');
+
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-x: hidden;
+  background-attachment: scroll;
+
+  /* каждый фон занимает экрана */
+  background-size:
+    100% 100vh,
+    100% 100vh,
+    100% 100vh,
+    100% 100vh;
+
+  /* строгая последовательность сверху вниз */
+  background-position:
+    center calc(100vh * 0),
+    center calc(100vh * 1),
+    center calc(100vh * 2),
+    center calc(100vh * 3),
+    center calc(100vh * 4);
+
+  background-color: #000;
   color: white;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 @media (max-width: 768px) {
   html,
   body {
-    background-attachment: scroll;
+    height: auto; /* вместо 500vh */
+  }
+  body {
     background-size:
-      300% auto,
-      /* уменьшаем только первое фото */ cover,
-      cover,
-      cover,
+      100% 100vh,
+      100% 100vh,
+      100% 100vh,
       cover;
-    background-position:
-      center top,
-      center top,
-      center center,
-      center bottom,
-      center bottom;
   }
 }
 .font-jakarta {
@@ -51,10 +55,21 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-
 @layer utilities {
   .bg-custom-gradient {
-    background: radial-gradient(88.29% 134.21% at 88.29% 50%, rgba(27, 0, 69, 0.35) 0%, rgba(69, 0, 180, 0.28) 100%),
-                linear-gradient(0deg, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.23));
+    background:
+      radial-gradient(
+        88.29% 134.21% at 88.29% 50%,
+        rgba(27, 0, 69, 0.35) 0%,
+        rgba(69, 0, 180, 0.208) 100%
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.23));
+  }
+  .text-custom-gradient {
+    background-image: linear-gradient(109.61deg, #6036f6 -9.44%, #b080f9 111.29%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* для других браузеров */
+    color: transparent;
   }
 }

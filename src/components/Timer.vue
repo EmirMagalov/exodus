@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-const TimerStyle = 'bg-[#412b8e] w-8 h-10 md:w-16 md:h-20  flex items-center justify-center  rounded-lg border-1 border-[#403b60]'
+const TimerStyle =
+  'bg-[#412b8e]/45 w-10 h-10 md:w-17 md:h-20  flex items-center justify-center  rounded-xl border-1 border-[#403b60]'
 const days = ref(1)
 const hours = ref(23)
 const minutes = ref(59)
@@ -42,7 +43,7 @@ div[class*='bg-white'] > div:first-child {
 </style>
 
 <template>
-  <div class="flex text-lg  md:text-4xl gap-1 md:gap-2 md:gap-5 items-baseline">
+  <div class="flex text-lg md:text-4xl gap-1 md:gap-2 md:gap-5 items-baseline">
     <!-- Цифры + подпись -->
     <div class="flex flex-col items-center">
       <div class="flex text gap-1 md:gap-2 mb-2 md:mb-5 font-bold">
@@ -53,7 +54,7 @@ div[class*='bg-white'] > div:first-child {
     </div>
 
     <!-- Точки -->
-     <h1 class="text-xl md:text-5xl">:</h1>
+    <h1 class="text-xl md:text-5xl">:</h1>
     <!-- <img class="object-contain w-1 md:w-full" src="/_.svg" alt="" /> -->
     <div class="flex flex-col items-center">
       <div class="flex text gap-1 md:gap-2 mb-2 md:mb-5 font-bold">
@@ -64,7 +65,7 @@ div[class*='bg-white'] > div:first-child {
     </div>
 
     <!-- Точки -->
-     <h1 class="text-xl md:text-5xl">:</h1>
+    <h1 class="text-xl md:text-5xl">:</h1>
     <div class="flex flex-col items-center">
       <div class="flex text gap-1 md:gap-2 mb-2 md:mb-5 font-bold">
         <p :class="TimerStyle">{{ minutes[0] }}</p>
@@ -74,7 +75,7 @@ div[class*='bg-white'] > div:first-child {
     </div>
 
     <!-- Точки -->
-     <h1 class="text-xl md:text-5xl">:</h1>
+    <h1 class="text-xl md:text-5xl">:</h1>
     <div class="flex flex-col items-center">
       <div class="flex text gap-1 md:gap-2 mb-2 md:mb-5 font-bold">
         <p :class="TimerStyle">{{ seconds[0] }}</p>

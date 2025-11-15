@@ -78,16 +78,16 @@ const handleScroll = () => {
     resetTimer()
   }
   // Подсветка активного раздела
-  sections.forEach((id) => {
-    const el = document.getElementById(id)
-    if (el) {
-      const top = el.getBoundingClientRect().top
-      const offset = 250
-      if (top <= offset && top + el.offsetHeight > offset) {
-        activeSection.value = id
-      }
-    }
-  })
+  // sections.forEach((id) => {
+  //   const el = document.getElementById(id)
+  //   if (el) {
+  //     const top = el.getBoundingClientRect().top
+  //     const offset = 250
+  //     if (top <= offset && top + el.offsetHeight > offset) {
+  //       activeSection.value = id
+  //     }
+  //   }
+  // })
 }
 
 onMounted(() => {
@@ -112,11 +112,8 @@ const open = ref([])
 <template>
   <button
     v-show="scrolled"
-    onclick="openModal()"
-    :class="[
-      'fixed z-10 bottom-5 text-white text-[16px] font-bold bg-[#6b52f5] rounded-full w-80 h-17 mx-auto left-0 right-0',
-      scrolled && !showHeader ? 'opacity-0 ' : 'opacity-100 ',
-    ]"
+    @click="openModal"
+    class="fixed z-10 bottom-5 text-white text-[16px] font-bold bg-[#6b52f5] rounded-full w-80 h-17 mx-auto left-0 right-0 transition-opacity duration-300"
   >
     Connect Wallet
   </button>
@@ -154,33 +151,39 @@ const open = ref([])
 
   <div>
     <div class="flex flex-col mt-15 gap-5">
-      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1  rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30">
+      <div
+        class="bg-custom-gradient border-1 rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30"
+      >
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector.svg" alt="" />
           <h1
-            class="text-[24px] bg-gradient-to-r from-[#B080F9] to-[#6036F6] bg-clip-text text-transparent font-bold"
+            class="text-[24px] text-custom-gradient bg-clip-text text-transparent font-bold"
           >
             3,811,500 <span class="text-[13px]">TRX Distributed</span>
           </h1>
         </div>
         <p class="mt-3 text-[15px]">Total Rewards Sent</p>
       </div>
-      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-8 w-80 h-35 border-1">
+      <div
+        class="bg-custom-gradient border-1 border-[#392c58]/30 rounded-2xl opacity-80 p-8 w-80 h-35 border-1"
+      >
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector (1).svg" alt="" />
           <h1
-            class="text-[24px] bg-gradient-to-r from-[#B080F9] to-[#6036F6] bg-clip-text text-transparent font-bold"
+            class="text-[24px] text-custom-gradient bg-clip-text text-transparent font-bold"
           >
             8,470
           </h1>
         </div>
         <p class="mt-3 text-[15px]">Connected Wallets</p>
       </div>
-      <div class="bg-gradient-to-r from-[#1B0045]/25 to-[#0000003B] border-1  rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30">
+      <div
+        class="bg-custom-gradient border-1 rounded-2xl opacity-80 p-8 w-80 h-35 border-1 border-[#392c58]/30"
+      >
         <div class="flex gap-5 whitespace-nowrap">
           <img width="25" src="/Vector (2).svg" alt="" />
           <h1
-            class="text-[24px] bg-gradient-to-r from-[#B080F9] to-[#6036F6] bg-clip-text text-transparent font-bold"
+            class="text-[24px] text-custom-gradient bg-clip-text text-transparent font-bold"
           >
             450 <span class="text-[13px]">TRX Avg</span>
           </h1>
@@ -231,7 +234,7 @@ const open = ref([])
     </div>
     <div class="flex flex-col gap-5">
       <div
-        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-custom-gradient border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector (3).svg" alt="" />
         <h1
@@ -247,7 +250,7 @@ const open = ref([])
         </div>
       </div>
       <div
-        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-custom-gradient border-1 border-[#392c58]/30 border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector (4).svg" alt="" />
         <h1
@@ -263,7 +266,7 @@ const open = ref([])
         </div>
       </div>
       <div
-        class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
+        class="bg-custom-gradient border-1 border-[#392c58]/30border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[327px] h-[250px] flex flex-col gap-2 justify-left"
       >
         <img width="20" src="/Vector.svg" alt="" />
         <h1 class="z-10 text-[21px] font-semibold whitespace-nowrap text-white mt-10 mb-5">

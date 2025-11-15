@@ -96,7 +96,7 @@ const open = ref([])
         >
           <img width="30" src="/Vector.svg" alt="" />
           <h1
-            class="text-[46px] whitespace-nowrap my-5 bg-gradient-to-r from-[#B080F9] to-[#6036F6] bg-clip-text text-transparent font-bold"
+            class="text-[46px] whitespace-nowrap bg-gradient-to-b from-[#6036F6] to-[#B080F9] bg-clip-text text-transparent font-bold"
           >
             3,811,500 <span class="text-[24px]">TRX Distributed</span>
           </h1>
@@ -107,7 +107,7 @@ const open = ref([])
         >
           <img width="30" src="/Vector (1).svg" alt="" />
           <h1
-            class="text-[46px] my-5 bg-gradient-to-b from-[#6036F6] to-[#B080F9] bg-clip-text text-transparent font-bold"
+            class="text-[46px]  bg-linear-to-b from-[#6036F6] to-[#B080F9] bg-clip-text text-transparent font-bold"
           >
             8,470
           </h1>
@@ -118,7 +118,7 @@ const open = ref([])
         >
           <img width="30" src="/Vector (2).svg" alt="" />
           <h1
-            class="text-[46px] my-5 bg-gradient-to-r from-[#B080F9] to-[#6036F6] bg-clip-text text-transparent font-bold"
+            class="text-[46px] bg-linear-to-b from-[#6036F6] to-[#B080F9] bg-clip-text text-transparent font-bold"
           >
             450 <span class="text-[24px]">TRX Avg</span>
           </h1>
@@ -165,37 +165,37 @@ const open = ref([])
       </div>
       <div class="flex gap-5">
         <div
-          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[300px] flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[320px] flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector (3).svg" alt="" />
-          <h1 class="z-10 text-[36px] text-white mb-5">Connect your wallet</h1>
+          <h1 class="z-10 text-[36px] text-white font-semibold font-jakarta mt-8 mb-5">Connect your wallet</h1>
           <p class="z-10 text-[20px]">
             Securely link your Exodus or any supported Web3 wallet (99+ platforms supported).
           </p>
-          <div class="absolute right-10 top-10">
-            <img class="z-0" src="/1.svg" alt="" />
+          <div class="absolute right-10 top-15">
+            <img class="z-0 w-[90px] h-[200px]" src="/1.svg" alt="" />
           </div>
         </div>
         <div
-          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[295px] flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[320px] flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector (4).svg" alt="" />
-          <h1 class="z-10 text-[36px] text-white mb-5">Complete a short survey</h1>
-          <p class="z-10 text-[20px]">
+          <h1 class="z-10 text-[36px] font-semibold font-jakarta text-white mt-8 mb-5">Complete a short survey</h1>
+          <p class="z-10  text-[20px]">
             Answer a few quick questions to confirm participation and personalize your rewards.
           </p>
-          <div class="z-0 absolute right-10">
-            <img src="/2.svg" alt="" />
+          <div class="absolute right-10 top-15">
+            <img class="z-0 w-[140px]" src="/2.svg" alt="" />
           </div>
         </div>
         <div
-          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[295px] flex flex-col gap-2 justify-left"
+          class="bg-gradient-to-r from-[#1B0045]/45 via-[#1B0045]/5 to-[#0000003B] border-1 border-[#392c58]/30 relative bg-[#100a2a] rounded-2xl opacity-80 p-10 w-[527px] h-[320px] flex flex-col gap-2 justify-left"
         >
           <img width="30" src="/Vector.svg" alt="" />
-          <h1 class="z-10 text-[36px] text-white mb-5">Get rewarded instantly</h1>
+          <h1 class="z-10 text-[36px] font-semibold font-jakarta text-white mt-8 mb-5">Get rewarded instantly</h1>
           <p class="z-10 text-[20px]">Receive your TRX bonus directly to your connected wallet.</p>
-          <div class="absolute right-10">
-            <img class="z-0" src="/3.svg" alt="" />
+          <div class="absolute right-10 top-15">
+            <img class="z-0 w-[140px]" src="/3.svg" alt="" />
           </div>
         </div>
       </div>
